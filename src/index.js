@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import App from './components/App';
+import App from './containers/App';
+import rootReducer from './reducers';
 import './index.css';
 
 const initialState = {
@@ -10,12 +11,17 @@ const initialState = {
     id: '',
     name: '',
     email: '',
-    classes: [],
   },
   instructors: {},
+  classes: {},
 };
 
-const store = createStore();
+const store = createStore(
+  rootReducer,
+  initialState,
+  // eslint-disable-next-line no-underscore-dangle
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,9 +1,11 @@
+// const createUser = user => ({
+//   type: 'CREATE_USER',
+//   user,
+// });
+
 const login = user => ({
   type: 'LOGIN',
-  id: user.id,
-  name: user.name,
-  email: user.email,
-  classes: user.classes,
+  user,
 });
 
 const logout = () => ({
@@ -16,20 +18,34 @@ const logout = () => ({
 
 const updateUser = user => ({
   type: 'UPDATE_USER',
-  id: user.id,
-  name: user.name,
-  email: user.email,
-  classes: user.classes,
+  user,
 });
+
+// const createInstructor = instructor => ({
+//   type: 'CREATE_INSTRUCTOR',
+//   instructor,
+// });
 
 const addInstructor = instructor => ({
   type: 'ADD_INSTRUCTOR',
-  name: instructor.name,
-  dragonType: instructor.dragonType,
-  dragonName: instructor.dragonName,
-  image: instructor.image,
-  dragonImage: instructor.dragonImage,
-  classes: instructor.classes,
+  instructor,
 });
 
-export { login, logout, updateUser, addInstructor };
+const addClass = classy => ({
+  type: 'ADD_CLASS',
+  classy,
+});
+
+const editClass = classy => ({
+  type: 'EDIT_CLASS',
+  classy,
+});
+
+const removeClass = classy => ({
+  type: 'REMOVE_CLASS',
+  classy,
+});
+
+export {
+  login, logout, updateUser, addInstructor, addClass, editClass, removeClass,
+};
