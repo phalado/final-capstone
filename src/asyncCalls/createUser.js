@@ -6,14 +6,8 @@ const createUser = async props => {
   } = props;
 
   const url = 'https://dragon-test-drive-api.herokuapp.com/';
-  const params = {
-    name,
-    email,
-    password,
-    password_confirmation: confirmation,
-  };
 
-  const response = await axios.post(url, params);
+  const response = await axios.post(`${url}?name=${name}&email=${email}&password=${password}&password_confirmation=${confirmation}`);
   console.log(response);
 };
 
@@ -21,9 +15,8 @@ const userLogin = async props => {
   const { email, password } = props;
 
   const url = 'https://dragon-test-drive-api.herokuapp.com/login';
-  const params = { email, password };
 
-  const response = await axios.get(url, params);
+  const response = await axios.get(`${url}?email=${email}&password=${password}`);
   console.log(response);
 };
 

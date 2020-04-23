@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getInstructors } from '../asyncCalls/createInstructor';
 import './App.css';
 
-function App() {
+const App = props => {
+  const [instructor, setInstructor] = useState();
+
+  useEffect(() => {
+    let mounted = true;
+
+    const instructors = async () => {
+      const response = await getInstructors();
+
+      if (mounted) {
+        setInstructor(response);
+      }
+
+      return response;
+    };
+    instructors();
+
+    return () => {
+      mounted = false;
+    };
+  }, instructor);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -23,6 +45,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;

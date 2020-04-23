@@ -6,14 +6,8 @@ const createClass = async props => {
   } = props;
 
   const url = 'https://dragon-test-drive-api.herokuapp.com/';
-  const params = {
-    instuctorID,
-    userID,
-    classTime,
-    status,
-  };
 
-  const response = await axios.post(url, params);
+  const response = await axios.post((`${url}?instuctor_id=${instuctorID}&user_id=${userID}&classTime=${classTime}&status=${status}`));
   console.log(response);
 };
 
