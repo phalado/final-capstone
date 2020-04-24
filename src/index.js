@@ -12,8 +12,8 @@ const initialState = {
     name: '',
     email: '',
   },
-  instructors: {},
-  classes: {},
+  instructors: [],
+  classes: [],
 };
 
 const store = createStore(

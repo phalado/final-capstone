@@ -1,32 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { getInstructors } from '../asyncCalls/createInstructor';
 import './App.css';
 
 const App = props => {
-  const [instructor, setInstructor] = useState();
+  const {
+    user, instructors, classes, logIn, logOut, addInst,
+  } = props;
+
+  const handleAddInstructor = array => {
+    if (array !== []) {
+      array.forEach(value => {
+        addInst(value);
+      });
+    }
+  };
 
   useEffect(() => {
     let mounted = true;
 
-    const instructors = async () => {
+    const fetchInstructors = async () => {
       const response = await getInstructors();
 
       if (mounted) {
-        setInstructor(response);
-      }
+        const newArray = [];
+        response.forEach(value => {
+          newArray.push(value);
+        });
 
-      return response;
+        handleAddInstructor(newArray);
+      }
     };
-    instructors();
+
+    fetchInstructors();
 
     return () => {
       mounted = false;
     };
-  }, instructor);
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
+        <ul>
+          {instructors.forEach(value => <li>{value.name}</li>)}
+        </ul>
         <p>
           Edit
           {' '}
@@ -45,6 +62,28 @@ const App = props => {
       </header>
     </div>
   );
+  // }
+  // return (
+  //   <div className="App">
+  //     <header className="App-header">
+  //       <p>
+  //         Edit
+  //         {' '}
+  //         <code>src/App.js</code>
+  //         {' '}
+  //         and save to reload.
+  //       </p>
+  //       <a
+  //         className="App-link"
+  //         href="https://reactjs.org"
+  //         target="_blank"
+  //         rel="noopener noreferrer"
+  //       >
+  //         Learn React
+  //       </a>
+  //     </header>
+  //   </div>
+  // );
 };
 
 export default App;

@@ -13,18 +13,10 @@ const createInstructor = async props => {
 };
 
 const getInstructors = async () => {
-  console.log('here');
   const url = 'https://dragon-test-drive-api.herokuapp.com/instructors';
-  const headers = {
-    'Access-Control-Allow-Origin': true,
-    'Access-Control-Allow-Headers': 'Authorization',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-    'Content-Type': 'application/json;charset=UTF-8',
-  };
 
-  const response = await axios.get(url, {headers});
-  console.log(response);
-  return response;
+  const response = await axios.get(url);
+  return response.data;
 };
 
 export { createInstructor, getInstructors };

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { login, logout } from '../actions';
+import { login, logout, addInstructor } from '../actions';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -14,6 +14,9 @@ const mapDispatchToProps = dispatch => ({
   },
   logOut: () => {
     dispatch(logout());
+  },
+  addInst: instructor => {
+    dispatch(addInstructor(instructor));
   },
 });
 
