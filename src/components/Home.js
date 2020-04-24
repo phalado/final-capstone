@@ -8,11 +8,14 @@ const Home = props => {
     return (
       <div className="home">
         <h1 className="home-tittle">{'Welcome to Berk\'s Dragon Flying Academy'}</h1>
-        <Link to={'/login'}>
+        <Link to="/login">
           <button type="button">Login</button>
         </Link>
-        <Link to={'/signup'}>
+        <Link to="/signup">
           <button type="button">Signup</button>
+        </Link>
+        <Link to="/instructors">
+          <button type="button">Instructors</button>
         </Link>
         <ul>
           {instructors.map(inst => (<li key={inst.id}>{inst.name}</li>))}

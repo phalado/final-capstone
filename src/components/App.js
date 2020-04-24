@@ -6,8 +6,9 @@ import {
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getInstructors } from '../asyncCalls/createInstructor';
-import { userLogin, createUser } from '../asyncCalls/createUser';
 import Home from './Home';
+import InstructorsList from './InstructorsList';
+import InstructorFile from './InstructorFile'
 import Login from '../containers/Login';
 import Signup from './Signup';
 import './App.css';
@@ -48,32 +49,26 @@ const App = props => {
     };
   }, []);
 
-  const handleLogin = async user => {
-    const response = await userLogin(user);
-    console.log(response);
-  };
-
-  const handleSignup = async user => {
-    const response = await createUser(user);
-    console.log(response);
-  };
-
   return (
     <Router>
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Home
-              instructors={instructors}
-              handleLogin={handleLogin}
-              handleSignup={handleSignup}
-            />
+            <Home instructors={instructors} />
           </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/signup">
             <Signup />
+          </Route>
+          <Route path="/instructors">
+            <InstructorsList instructors={instructors} />
+          </Route>
+          <Route path="/instFile/:id">
+            <InstructorFile
+              instructors={instructors}
+            />
           </Route>
         </Switch>
       </div>
