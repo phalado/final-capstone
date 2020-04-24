@@ -8,6 +8,7 @@ import './index.css';
 
 const initialState = {
   user: {
+    logged: false,
     id: '',
     name: '',
     email: '',

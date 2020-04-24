@@ -1,5 +1,15 @@
 import React, { useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getInstructors } from '../asyncCalls/createInstructor';
+import { userLogin, createUser } from '../asyncCalls/createUser';
+import Home from './Home';
+import Login from '../containers/Login';
+import Signup from './Signup';
 import './App.css';
 
 const App = props => {
@@ -38,52 +48,37 @@ const App = props => {
     };
   }, []);
 
+  const handleLogin = async user => {
+    const response = await userLogin(user);
+    console.log(response);
+  };
+
+  const handleSignup = async user => {
+    const response = await createUser(user);
+    console.log(response);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <ul>
-          {instructors.forEach(value => <li>{value.name}</li>)}
-        </ul>
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Home
+              instructors={instructors}
+              handleLogin={handleLogin}
+              handleSignup={handleSignup}
+            />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
-  // }
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <p>
-  //         Edit
-  //         {' '}
-  //         <code>src/App.js</code>
-  //         {' '}
-  //         and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
 };
 
 export default App;

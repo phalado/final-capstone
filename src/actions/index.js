@@ -10,10 +10,6 @@ const login = user => ({
 
 const logout = () => ({
   type: 'LOGOUT',
-  id: 0,
-  name: '',
-  email: '',
-  classes: [],
 });
 
 const updateUser = user => ({
