@@ -3,9 +3,9 @@ const userReducer = (state = null, action) => {
     case 'LOGIN':
       return ({
         logged: true,
-        id: action.id,
-        name: action.name,
-        email: action.email,
+        id: action.user.id,
+        name: action.user.name,
+        email: action.user.email,
       });
     case 'LOGOUT':
       return ({

@@ -23,7 +23,7 @@ const Instructor = props => {
 
 Instructor.propTypes = {
   instructor: PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     name: PropTypes.string,
     instImage: PropTypes.string,
   }).isRequired,
