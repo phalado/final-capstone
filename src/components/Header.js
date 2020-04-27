@@ -6,6 +6,14 @@ import './styles/Header.css';
 const Header = props => {
   const { user, logOut } = props;
 
+  const handleLogout = () => {
+    logOut();
+    const token = JSON.stringify({
+      id: '', name: '', email: '', remember: false,
+    });
+    localStorage.setItem('localUser', token);
+  };
+
   if (user.logged) {
     return (
       <header className="header">
@@ -29,7 +37,7 @@ const Header = props => {
             <button
               type="button"
               className="account-button"
-              onClick={logOut}
+              onClick={handleLogout}
             >
               Logout
             </button>

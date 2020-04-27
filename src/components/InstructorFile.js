@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles/InstFile.css';
 
 const InstructorFile = props => {
   const { instructors } = props;
@@ -13,7 +14,7 @@ const InstructorFile = props => {
     <div>
       <div className="inst-file-container">
         <div className="inst-image-container">
-          <img src={instImage} alt={name} className="inst-image" />
+          <img src={instImage} alt={name} className="inst-file-image" />
         </div>
         <div className="inst-data">
           <h1>{name}</h1>
@@ -25,7 +26,7 @@ const InstructorFile = props => {
           </h2>
         </div>
         <div className="dragon-image-container">
-          <img src={dragonImage} alt={dragonName} className="gradon-image" />
+          <img src={dragonImage} alt={dragonName} className="dragon-image" />
         </div>
       </div>
     </div>

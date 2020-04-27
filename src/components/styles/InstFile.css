@@ -1,0 +1,17 @@
+.inst-file-container {
+  display: flex;
+}
+
+.inst-image-container,
+.inst-data,
+.dragon-image-container {
+  width: 30%;
+}
+
+.inst-file-image {
+  width: 100%;
+}
+
+.dragon-image {
+  width: 100%;
+}

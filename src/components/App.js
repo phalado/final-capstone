@@ -11,8 +11,8 @@ import InstructorsList from './InstructorsList';
 import InstructorFile from './InstructorFile';
 import Login from '../containers/Login';
 import Signup from './Signup';
-import './App.css';
 import Header from '../containers/Header';
+import './App.css';
 
 const App = props => {
   const {

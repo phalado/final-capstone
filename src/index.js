@@ -6,16 +6,33 @@ import App from './containers/App';
 import rootReducer from './reducers';
 import './index.css';
 
-const initialState = {
-  user: {
-    logged: false,
-    id: '',
-    name: '',
-    email: '',
-  },
-  instructors: [],
-  classes: [],
-};
+const localStr = localStorage.getItem('localUser');
+const localUser = JSON.parse(localStr);
+let initialState = {};
+
+if (localUser === null || !localUser.remember) {
+  initialState = {
+    user: {
+      logged: false,
+      id: '',
+      name: '',
+      email: '',
+    },
+    instructors: [],
+    classes: [],
+  };
+} else if (localUser.remember) {
+  initialState = {
+    user: {
+      logged: true,
+      id: localUser.id,
+      name: localUser.name,
+      email: localUser.email,
+    },
+    instructors: [],
+    classes: [],
+  };
+}
 
 const store = createStore(
   rootReducer,

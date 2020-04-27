@@ -26,6 +26,10 @@ const Login = props => {
       document.getElementById('login-message').innerHTML = 'Error: Password incorrect';
     } else {
       logIn({ id: response.id, name: response.name, email: response.email });
+      const token = JSON.stringify({
+        id: response.id, name: response.name, email: response.email, remember: true,
+      });
+      localStorage.setItem('localUser', token);
       return <Redirect to="/home" />;
     }
     return null;
