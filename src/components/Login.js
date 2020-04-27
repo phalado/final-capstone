@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 import { userLogin } from '../asyncCalls/createUser';
+import './styles/Forms.css';
 
 const Login = props => {
   const { user, logIn } = props;
@@ -34,16 +35,16 @@ const Login = props => {
     <div className="login">
       {user.logged ? <Redirect to="/" /> : null}
       <h1 id="login-message">Fill the form to login</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login-form">
         <label htmlFor="email">
           Email:
-          <input id="input-email" type="email" onChange={handleChange} />
+          <input id="input-email" type="email" onChange={handleChange} className="form-control" />
         </label>
         <label htmlFor="password">
           Password:
-          <input id="input-pass" type="password" onChange={handleChange} />
+          <input id="input-pass" type="password" onChange={handleChange} className="form-control" />
         </label>
-        <input type="submit" value="submit" />
+        <input type="submit" value="Submit" className="btn btn-primary form-control" />
       </form>
     </div>
   );

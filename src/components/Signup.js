@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import { createUser } from '../asyncCalls/createUser';
+import './styles/Forms.css';
 
 const Signup = () => {
   const [name, setName] = useState();
@@ -40,25 +41,25 @@ const Signup = () => {
   };
 
   return (
-    <div className="login">
+    <div className="signup">
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
           Name:
-          <input id="input-name" type="text" onChange={handleChange} />
+          <input id="input-name" type="text" onChange={handleChange} className="form-control" />
         </label>
         <label htmlFor="email">
           Email:
-          <input id="input-email" type="email" onChange={handleChange} />
+          <input id="input-email" type="email" onChange={handleChange} className="form-control" />
         </label>
         <label htmlFor="password">
           Password:
-          <input id="input-pass" type="password" onChange={handleChange} />
+          <input id="input-pass" type="password" onChange={handleChange} className="form-control" />
         </label>
         <label htmlFor="password">
           Password confirmation:
-          <input id="input-conf" type="password" onChange={handleChange} />
+          <input id="input-conf" type="password" onChange={handleChange} className="form-control" />
         </label>
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" className="btn btn-primary form-control" />
       </form>
     </div>
   );
