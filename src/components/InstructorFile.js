@@ -5,7 +5,16 @@ import './styles/InstFile.css';
 const InstructorFile = props => {
   const { instructors } = props;
   const querry = window.location.href.split('instFile/')[1];
-  const instructor = instructors.filter(inst => inst.id === parseInt(querry, 10))[0];
+  let instructor = instructors.filter(inst => inst.id === parseInt(querry, 10))[0];
+  if (!instructor) {
+    instructor = {
+      name: '',
+      instImage: '',
+      dragonName: '',
+      dragonType: '',
+      dragonImage: '',
+    };
+  }
   const {
     name, instImage, dragonName, dragonType, dragonImage,
   } = instructor;
