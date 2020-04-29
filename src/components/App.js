@@ -10,6 +10,7 @@ import Navbar from '../containers/Navbar';
 import Home from './Home';
 import InstructorsList from './InstructorsList';
 import InstructorFile from './InstructorFile';
+import InstructorsSchedule from '../containers/InstructorsSchedule';
 import Login from '../containers/Login';
 import Signup from './Signup';
 import './styles/App.css';
@@ -39,6 +40,9 @@ const App = props => {
               </Route>
               <Route path="/instFile/:id">
                 <InstructorFile instructors={instructors} />
+              </Route>
+              <Route path="/instSchedule/:id">
+                <InstructorsSchedule />
               </Route>
             </Switch>
           </div>

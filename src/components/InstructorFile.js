@@ -1,22 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/InstFile.css';
+import { Link } from 'react-router-dom';
+import getSingleInst from '../helpers/InstructorsHelper';
 
 const InstructorFile = props => {
   const { instructors } = props;
-  const querry = window.location.href.split('instFile/')[1];
-  let instructor = instructors.filter(inst => inst.id === parseInt(querry, 10))[0];
-  if (!instructor) {
-    instructor = {
-      name: '',
-      instImage: '',
-      dragonName: '',
-      dragonType: '',
-      dragonImage: '',
-    };
-  }
+  const instructor = getSingleInst(instructors, 'instFile');
   const {
-    name, instImage, dragonName, dragonType, dragonImage,
+    id, name, instImage, dragonName, dragonType, dragonImage,
   } = instructor;
 
   return (
@@ -33,6 +25,11 @@ const InstructorFile = props => {
           <h2>
             {`Dragon type: ${dragonType}`}
           </h2>
+          <Link to={`/instSchedule/${id}`}>
+            <button type="button">
+              Instructor&apos;s schedule
+            </button>
+          </Link>
         </div>
         <div className="dragon-image-container">
           <img src={dragonImage} alt={dragonName} className="dragon-image" />

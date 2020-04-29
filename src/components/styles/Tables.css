@@ -1,0 +1,12 @@
+.table {
+  width: 96%;
+  margin: 2rem auto; 
+}
+
+.table-title {
+  margin-top: 2rem;
+}
+
+.table-head {
+  font-size: 1.5rem;
+}

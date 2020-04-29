@@ -20,7 +20,7 @@ const Header = props => {
         <div>
           <Link to="/">
             <button type="button" className="header-button">
-              <img src="httyd-icon2.png" alt="Home" className="header-button-img" />
+              <img src="/contents/httyd-icon2.png" alt="Home" className="header-button-img" />
             </button>
           </Link>
         </div>
@@ -52,7 +52,7 @@ const Header = props => {
       <div>
         <Link to="/">
           <button type="button" className="header-button">
-            <img src="httyd-icon2.png" alt="Home" className="header-button-img" />
+            <img src="/contents/httyd-icon2.png" alt="Home" className="header-button-img" />
           </button>
         </Link>
       </div>

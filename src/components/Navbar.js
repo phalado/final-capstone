@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getInstructors } from '../asyncCalls/createInstructor';
 import './styles/Navbar.css';
 
@@ -52,6 +53,11 @@ const Navbar = props => {
       <Link to="/about" className="navbar-link">About us</Link>
     </nav>
   );
+};
+
+Navbar.propTypes = {
+  instructors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  addInst: PropTypes.func.isRequired,
 };
 
 export default Navbar;

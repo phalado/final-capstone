@@ -2,11 +2,7 @@ import { connect } from 'react-redux';
 import Navbar from '../components/Navbar';
 import { addInstructor } from '../actions';
 
-const mapStateToProps = state => ({
-  user: state.user,
-  instructors: state.instructors,
-  classes: state.classes,
-});
+const mapStateToProps = state => ({ instructors: state.instructors });
 
 const mapDispatchToProps = dispatch => ({
   addInst: instructor => {
