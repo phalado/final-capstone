@@ -20,6 +20,7 @@ if (localUser === null || !localUser.remember) {
     },
     instructors: [],
     classes: [],
+    signedUsers: [],
   };
 } else if (localUser.remember) {
   initialState = {
@@ -31,6 +32,7 @@ if (localUser === null || !localUser.remember) {
     },
     instructors: [],
     classes: [],
+    signedUsers: [],
   };
 }
 

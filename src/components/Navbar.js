@@ -2,15 +2,35 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getInstructors } from '../asyncCalls/createInstructor';
+import { getClasses } from '../asyncCalls/createClass';
+import { getSignedUsers } from '../asyncCalls/createUser';
 import './styles/Navbar.css';
 
 const Navbar = props => {
-  const { instructors, addInst } = props;
+  const {
+    instructors, addInst, addClassy, addUsr,
+  } = props;
 
   const handleAddInstructor = array => {
     if (array !== []) {
       array.forEach(value => {
         addInst(value);
+      });
+    }
+  };
+
+  const handleAddClasses = array => {
+    if (array !== []) {
+      array.forEach(value => {
+        addClassy(value);
+      });
+    }
+  };
+
+  const handleAddUsers = array => {
+    if (array !== []) {
+      array.forEach(value => {
+        addUsr(value);
       });
     }
   };
@@ -22,16 +42,44 @@ const Navbar = props => {
       const response = await getInstructors();
 
       if (mounted) {
-        const newArray = [];
+        const newArrayInst = [];
         response.forEach(value => {
-          newArray.push(value);
+          newArrayInst.push(value);
         });
 
-        handleAddInstructor(newArray);
+        handleAddInstructor(newArrayInst);
+      }
+    };
+
+    const fetchClasses = async () => {
+      const response = await getClasses();
+
+      if (mounted) {
+        const newArrayClass = [];
+        response.forEach(value => {
+          newArrayClass.push(value);
+        });
+
+        handleAddClasses(newArrayClass);
+      }
+    };
+
+    const fetchUsers = async () => {
+      const response = await getSignedUsers();
+
+      if (mounted) {
+        const newArrayUser = [];
+        response.forEach(value => {
+          newArrayUser.push(value);
+        });
+
+        handleAddUsers(newArrayUser);
       }
     };
 
     fetchInstructors();
+    fetchClasses();
+    fetchUsers();
 
     return () => {
       mounted = false;
@@ -58,6 +106,8 @@ const Navbar = props => {
 Navbar.propTypes = {
   instructors: PropTypes.arrayOf(PropTypes.object).isRequired,
   addInst: PropTypes.func.isRequired,
+  addClassy: PropTypes.func.isRequired,
+  addUsr: PropTypes.func.isRequired,
 };
 
 export default Navbar;

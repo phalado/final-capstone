@@ -24,35 +24,77 @@ const lastMonday = () => {
 };
 
 const CreateCells = props => {
-  const { date, onClick } = props;
+  const {
+    user, date, onClick, classes, signedUsers,
+  } = props;
+  const classy = classes.filter(cls => moment(cls.classTime).format() === moment(date).format());
+
+  if (classy[0]) {
+    const schUser = signedUsers.filter(usr => usr.id === classy[0].user);
+
+    if (schUser[0].id === user.id) {
+      return (
+        <th>
+          <div className="cells">
+            {schUser[0].name}
+            <button
+              type="button"
+              onClick={() => onClick(date, true)}
+            >
+              Cancel
+            </button>
+          </div>
+        </th>
+      );
+    }
+
+    return (
+      <th>
+        <div className="cells">
+          {schUser[0].name}
+        </div>
+      </th>
+    );
+  }
+
   return (
     <th>
-      <button
-        type="button"
-        onClick={() => onClick(date)}
-      >
-        Schedule
-      </button>
+      <div className="cells">
+        Open spot
+        <button
+          type="button"
+          onClick={() => onClick(date, true)}
+        >
+          Schedule
+        </button>
+      </div>
     </th>
   );
 };
 
 const CreateRows = props => {
-  const { date, clickHandler } = props;
+  const {
+    user, date, clickHandler, classes, signedUsers,
+  } = props;
 
   const tableCells = () => {
     const tc = [<th key={date}>{moment(date).format('LT')}</th>];
+
     for (let i = 0; i < 5; i += 1) {
       tc.push(<CreateCells
-        date={date}
-        onClick={value => clickHandler(value)}
+        user={user}
+        date={moment(date).add(lastMonday() + i, 'days').format()}
+        onClick={(dt, cancel) => clickHandler(dt, cancel)}
+        classes={classes}
+        signedUsers={signedUsers}
+        key={moment(date).add(lastMonday() + i, 'days').format()}
       />);
     }
     return tc;
   };
 
   return (
-    <tr>
+    <tr className="table-rows">
       {tableCells()}
     </tr>
   );
@@ -61,11 +103,13 @@ const CreateRows = props => {
 CreateCells.propTypes = {
   date: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  classes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 CreateRows.propTypes = {
   date: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
+  classes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export { lastMonday, CreateCells, CreateRows };

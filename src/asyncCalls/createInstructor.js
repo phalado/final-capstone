@@ -6,8 +6,9 @@ const createInstructor = async props => {
   } = props;
 
   const url = 'https://dragon-test-drive-api.herokuapp.com/instructors/';
+  const params = `name=${name}&instImage=${instImage}&dragonName=${dragonName}&dragonType=${dragonType}&dragonImage=${dragonImage}`;
 
-  const response = await axios.post(`${url}?name=${name}&instImage=${instImage}&dragonName=${dragonName}&dragonType=${dragonType}&dragonImage=${dragonImage}`);
+  const response = await axios.post(`${url}?${params}`);
   return response;
 };
 

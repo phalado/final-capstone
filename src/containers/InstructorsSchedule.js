@@ -6,6 +6,7 @@ const mapStateToProps = state => ({
   user: state.user,
   instructors: state.instructors,
   classes: state.classes,
+  signedUsers: state.signedUsers,
 });
 
 const mapDispatchToProps = dispatch => ({

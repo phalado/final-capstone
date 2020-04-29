@@ -1,7 +1,7 @@
-// const createUser = user => ({
-//   type: 'CREATE_USER',
-//   user,
-// });
+const addUsers = user => ({
+  type: 'ADD_USERS',
+  user,
+});
 
 const login = user => ({
   type: 'LOGIN',
@@ -43,5 +43,5 @@ const removeClass = classy => ({
 });
 
 export {
-  login, logout, updateUser, addInstructor, addClass, editClass, removeClass,
+  addUsers, login, logout, updateUser, addInstructor, addClass, editClass, removeClass,
 };

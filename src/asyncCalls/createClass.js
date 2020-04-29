@@ -12,4 +12,11 @@ const createClass = async props => {
   return response.data;
 };
 
-export default createClass;
+const getClasses = async () => {
+  const url = 'https://dragon-test-drive-api.herokuapp.com/fly_classes';
+
+  const response = await axios.get(url);
+  return response.data;
+};
+
+export { createClass, getClasses };
