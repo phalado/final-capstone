@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 const lastMonday = () => {
   switch (moment().format('dddd')) {
@@ -23,27 +24,48 @@ const lastMonday = () => {
 };
 
 const CreateCells = props => {
-  const { date } = props;
+  const { date, onClick } = props;
   return (
     <th>
-      {date}
+      <button
+        type="button"
+        onClick={() => onClick(date)}
+      >
+        Schedule
+      </button>
     </th>
   );
 };
 
 const CreateRows = props => {
-  const { date } = props;
+  const { date, clickHandler } = props;
+
+  const tableCells = () => {
+    const tc = [<th key={date}>{moment(date).format('LT')}</th>];
+    for (let i = 0; i < 5; i += 1) {
+      tc.push(<CreateCells
+        date={date}
+        onClick={value => clickHandler(value)}
+      />);
+    }
+    return tc;
+  };
 
   return (
     <tr>
-      <th>{moment(date).format('LT')}</th>
-      <CreateCells date={moment(date).format('LLL')} />
-      <CreateCells date={moment(date).add(1, 'days').format('LLL')} />
-      <CreateCells date={moment(date).add(2, 'days').format('LLL')} />
-      <CreateCells date={moment(date).add(3, 'days').format('LLL')} />
-      <CreateCells date={moment(date).add(4, 'days').format('LLL')} />
+      {tableCells()}
     </tr>
   );
+};
+
+CreateCells.propTypes = {
+  date: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
+CreateRows.propTypes = {
+  date: PropTypes.string.isRequired,
+  clickHandler: PropTypes.func.isRequired,
 };
 
 export { lastMonday, CreateCells, CreateRows };

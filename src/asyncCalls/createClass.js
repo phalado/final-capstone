@@ -5,10 +5,11 @@ const createClass = async props => {
     instuctorID, userID, classTime, status,
   } = props;
 
-  const url = 'https://dragon-test-drive-api.herokuapp.com/';
+  const url = 'https://dragon-test-drive-api.herokuapp.com/fly_classes/';
+  const params = `instructor_id=${instuctorID}&user_id=${userID}&classTime=${classTime}&status=${status}`;
 
-  const response = await axios.post((`${url}?instuctor_id=${instuctorID}&user_id=${userID}&classTime=${classTime}&status=${status}`));
-  console.log(response);
+  const response = await axios.post((`${url}?${params}`));
+  return response.data;
 };
 
 export default createClass;

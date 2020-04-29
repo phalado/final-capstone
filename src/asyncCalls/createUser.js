@@ -8,7 +8,6 @@ const createUser = async props => {
   const url = 'https://dragon-test-drive-api.herokuapp.com/users';
 
   const response = await axios.post(`${url}?name=${name}&email=${email}&password=${pass}&password_confirmation=${conf}`);
-  console.log(response);
   return response.data;
 };
 
