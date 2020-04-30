@@ -11,12 +11,14 @@ import Home from './Home';
 import InstructorsList from './InstructorsList';
 import InstructorFile from './InstructorFile';
 import InstructorsSchedule from '../containers/InstructorsSchedule';
+import UserSchedule from '../containers/UserSchedule';
+import UserAccount from './UserAccount';
 import Login from '../containers/Login';
 import Signup from './Signup';
 import './styles/App.css';
 
 const App = props => {
-  const { user, instructors, chngWeek } = props;
+  const { user, instructors, chngWeek, editUser } = props;
 
   return (
     <Router>
@@ -44,6 +46,12 @@ const App = props => {
               <Route path="/instSchedule/:id">
                 <InstructorsSchedule />
               </Route>
+              <Route path="/userSchedule">
+                <UserSchedule />
+              </Route>
+              <Route path="/account">
+                <UserAccount user={user} editUser={editUser} />
+              </Route>
             </Switch>
           </div>
         </div>
@@ -59,6 +67,7 @@ App.propTypes = {
     logged: PropTypes.bool,
   }).isRequired,
   chngWeek: PropTypes.func.isRequired,
+  editUser: PropTypes.func.isRequired,
 };
 
 export default App;

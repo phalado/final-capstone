@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { changeWeek } from '../actions';
+import { changeWeek, updateUser } from '../actions';
 import App from '../components/App';
 
 const mapStateToProps = state => ({
@@ -11,6 +11,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   chngWeek: week => {
     dispatch(changeWeek(week));
+  },
+  editUser: user => {
+    dispatch(updateUser(user));
   },
 });
 

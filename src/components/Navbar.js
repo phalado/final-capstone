@@ -97,7 +97,8 @@ const Navbar = props => {
           </Link>
         ))}
       </ul>
-      <Link to="how-to-schedulle" className="navbar-link">How to schedulle a class</Link>
+      <Link to="/how-to-schedulle" className="navbar-link">How to schedulle your class</Link>
+      <Link to="/userSchedule" className="navbar-link">Your schedulle</Link>
       <Link to="/about" className="navbar-link">About us</Link>
     </nav>
   );
