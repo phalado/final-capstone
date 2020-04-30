@@ -23,9 +23,11 @@ const lastMonday = () => {
   }
 };
 
+const getDay = (value, week) => lastMonday() + value + (7 * week);
+
 const CreateCells = props => {
   const {
-    user, date, onClick, classes, signedUsers,
+    user, date, week, onClick, classes, signedUsers,
   } = props;
   const classy = classes.filter(cls => moment(cls.classTime).format() === moment(date).format());
 
@@ -75,7 +77,7 @@ const CreateCells = props => {
 
 const CreateRows = props => {
   const {
-    user, date, clickHandler, classes, signedUsers,
+    user, date, week, clickHandler, classes, signedUsers,
   } = props;
 
   const tableCells = () => {
@@ -84,11 +86,12 @@ const CreateRows = props => {
     for (let i = 0; i < 5; i += 1) {
       tc.push(<CreateCells
         user={user}
-        date={moment(date).add(lastMonday() + i, 'days').format()}
+        date={moment(date).add(getDay(i, week), 'days').format()}
+        week={week}
         onClick={(dt, id, cancel) => clickHandler(dt, id, cancel)}
         classes={classes}
         signedUsers={signedUsers}
-        key={moment(date).add(lastMonday() + i, 'days').format()}
+        key={moment(date).add(getDay(i, week), 'days').format()}
       />);
     }
     return tc;
@@ -102,25 +105,29 @@ const CreateRows = props => {
 };
 
 CreateCells.propTypes = {
-  date: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
   user: PropTypes.shape({
     id: PropTypes.number,
     logged: PropTypes.bool,
   }).isRequired,
+  date: PropTypes.string.isRequired,
+  week: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
   classes: PropTypes.arrayOf(PropTypes.object).isRequired,
   signedUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 CreateRows.propTypes = {
-  date: PropTypes.string.isRequired,
-  clickHandler: PropTypes.func.isRequired,
   user: PropTypes.shape({
     id: PropTypes.number,
     logged: PropTypes.bool,
   }).isRequired,
+  date: PropTypes.string.isRequired,
+  week: PropTypes.number.isRequired,
+  clickHandler: PropTypes.func.isRequired,
   classes: PropTypes.arrayOf(PropTypes.object).isRequired,
   signedUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export { lastMonday, CreateCells, CreateRows };
+export {
+  lastMonday, getDay, CreateCells, CreateRows,
+};

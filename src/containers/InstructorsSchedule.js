@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addClass, removeClass } from '../actions';
+import { addClass, removeClass, changeWeek } from '../actions';
 import InstructorsSchedule from '../components/InstructorsSchedule';
 
 const mapStateToProps = state => ({
@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   instructors: state.instructors,
   classes: state.classes,
   signedUsers: state.signedUsers,
+  week: state.week,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -15,6 +16,9 @@ const mapDispatchToProps = dispatch => ({
   },
   removeClassy: classID => {
     dispatch(removeClass(classID));
+  },
+  chngWeek: week => {
+    dispatch(changeWeek(week));
   },
 });
 

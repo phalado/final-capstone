@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles/InstFile.css';
 import { Link } from 'react-router-dom';
 import getSingleInst from '../helpers/InstructorsHelper';
+import './styles/InstFile.css';
 
 const InstructorFile = props => {
-  const { instructors } = props;
+  const { instructors, changeWeek } = props;
   const instructor = getSingleInst(instructors, 'instFile');
   const {
     id, name, instImage, dragonName, dragonType, dragonImage,
@@ -26,7 +26,7 @@ const InstructorFile = props => {
             {`Dragon type: ${dragonType}`}
           </h2>
           <Link to={`/instSchedule/${id}`}>
-            <button type="button">
+            <button type="button" onClick={() => changeWeek(0)}>
               Instructor&apos;s schedule
             </button>
           </Link>
@@ -41,6 +41,7 @@ const InstructorFile = props => {
 
 InstructorFile.propTypes = {
   instructors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  changeWeek: PropTypes.func.isRequired,
 };
 
 export default InstructorFile;

@@ -16,7 +16,7 @@ import Signup from './Signup';
 import './styles/App.css';
 
 const App = props => {
-  const { user, instructors } = props;
+  const { user, instructors, chngWeek } = props;
 
   return (
     <Router>
@@ -39,7 +39,7 @@ const App = props => {
                 <InstructorsList instructors={instructors} />
               </Route>
               <Route path="/instFile/:id">
-                <InstructorFile instructors={instructors} />
+                <InstructorFile instructors={instructors} changeWeek={chngWeek} />
               </Route>
               <Route path="/instSchedule/:id">
                 <InstructorsSchedule />
@@ -58,6 +58,7 @@ App.propTypes = {
     id: PropTypes.number,
     logged: PropTypes.bool,
   }).isRequired,
+  chngWeek: PropTypes.func.isRequired,
 };
 
 export default App;

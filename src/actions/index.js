@@ -42,6 +42,11 @@ const removeClass = classy => ({
   classy,
 });
 
+const changeWeek = week => ({
+  type: 'CHANGE_WEEK',
+  week,
+});
+
 export {
-  addUsers, login, logout, updateUser, addInstructor, addClass, editClass, removeClass,
+  addUsers, login, logout, updateUser, addInstructor, addClass, editClass, removeClass, changeWeek,
 };
