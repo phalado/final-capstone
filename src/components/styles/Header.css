@@ -31,7 +31,8 @@ button:hover {
   border-radius: 5px;
   margin: 0.5rem;
   height: 3rem;
-  width: 5rem;
+  min-width: 5rem;
+  width: fit-content;
   background-color: black;
   color: white;
   font-size: 1rem;

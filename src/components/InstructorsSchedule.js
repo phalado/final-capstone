@@ -3,23 +3,21 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import { lastMonday, CreateRows } from '../helpers/TableHelper';
 import getSingleInst from '../helpers/InstructorsHelper';
-import { createClass } from '../asyncCalls/createClass';
+import { createClass, deleteClass } from '../asyncCalls/createClass';
 import './styles/Tables.css';
 
 const InstructorsSchedule = props => {
   const {
-    instructors, user, classes, signedUsers, addClassy,
+    instructors, user, classes, signedUsers, addClassy, removeClassy,
   } = props;
   const instructor = getSingleInst(instructors, 'instSchedule');
   const headFormat = 'dddd - MMMM Do';
   const rowFormat = 'YYYY-MM-DDT';
 
-  console.log(signedUsers);
-  
-
-  const handleClick = async (date, cancel) => {
+  const handleClick = async (date, id, cancel) => {
     if (cancel) {
-
+      await deleteClass(id);
+      removeClassy(id);
     } else {
       const classy = await createClass({
         instuctorID: instructor.id,
@@ -27,7 +25,6 @@ const InstructorsSchedule = props => {
         classTime: date,
         status: false,
       });
-      console.log(classy);
       addClassy(classy);
     }
   };
@@ -80,7 +77,10 @@ InstructorsSchedule.propTypes = {
     id: PropTypes.number,
     logged: PropTypes.bool,
   }).isRequired,
+  classes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  signedUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
   addClassy: PropTypes.func.isRequired,
+  removeClassy: PropTypes.func.isRequired,
 };
 
 export default InstructorsSchedule;

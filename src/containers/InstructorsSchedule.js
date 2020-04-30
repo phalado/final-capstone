@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addClass } from '../actions';
+import { addClass, removeClass } from '../actions';
 import InstructorsSchedule from '../components/InstructorsSchedule';
 
 const mapStateToProps = state => ({
@@ -12,6 +12,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addClassy: classy => {
     dispatch(addClass(classy));
+  },
+  removeClassy: classID => {
+    dispatch(removeClass(classID));
   },
 });
 

@@ -10,7 +10,7 @@ const classesReducer = (state = [], action) => {
           status: action.classy.status,
         }]);
     case 'REMOVE_CLASS':
-      return state.filter(classy => classy.id !== action.id);
+      return state.filter(classy => classy.id !== action.classy);
     default:
       return state;
   }

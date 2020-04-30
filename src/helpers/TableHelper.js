@@ -31,6 +31,7 @@ const CreateCells = props => {
 
   if (classy[0]) {
     const schUser = signedUsers.filter(usr => usr.id === classy[0].user);
+    if (schUser.length === 0) schUser.push({ id: 0 });
 
     if (schUser[0].id === user.id) {
       return (
@@ -39,7 +40,7 @@ const CreateCells = props => {
             {schUser[0].name}
             <button
               type="button"
-              onClick={() => onClick(date, true)}
+              onClick={() => onClick(date, classy[0].id, true)}
             >
               Cancel
             </button>
@@ -63,7 +64,7 @@ const CreateCells = props => {
         Open spot
         <button
           type="button"
-          onClick={() => onClick(date, true)}
+          onClick={() => onClick(date, 0, false)}
         >
           Schedule
         </button>
@@ -84,7 +85,7 @@ const CreateRows = props => {
       tc.push(<CreateCells
         user={user}
         date={moment(date).add(lastMonday() + i, 'days').format()}
-        onClick={(dt, cancel) => clickHandler(dt, cancel)}
+        onClick={(dt, id, cancel) => clickHandler(dt, id, cancel)}
         classes={classes}
         signedUsers={signedUsers}
         key={moment(date).add(lastMonday() + i, 'days').format()}
@@ -103,13 +104,23 @@ const CreateRows = props => {
 CreateCells.propTypes = {
   date: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.number,
+    logged: PropTypes.bool,
+  }).isRequired,
   classes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  signedUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 CreateRows.propTypes = {
   date: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.number,
+    logged: PropTypes.bool,
+  }).isRequired,
   classes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  signedUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export { lastMonday, CreateCells, CreateRows };
