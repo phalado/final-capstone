@@ -16,7 +16,7 @@ import Signup from './Signup';
 import './styles/App.css';
 
 const App = props => {
-  const { instructors } = props;
+  const { user, instructors } = props;
 
   return (
     <Router>
@@ -27,7 +27,7 @@ const App = props => {
           <div className="main">
             <Switch>
               <Route exact path="/">
-                <Home instructors={instructors} />
+                <Home instructors={instructors} user={user} />
               </Route>
               <Route path="/login">
                 <Login />
@@ -54,6 +54,10 @@ const App = props => {
 
 App.propTypes = {
   instructors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.number,
+    logged: PropTypes.bool,
+  }).isRequired,
 };
 
 export default App;
