@@ -64,3 +64,9 @@
 .list-image-100 {
   width: 100%;
 }
+
+@media (max-width: 750px) {
+  .ordered-list {
+    width: 80%;
+  }
+}

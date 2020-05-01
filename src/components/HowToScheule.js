@@ -44,7 +44,8 @@ const HowToSchedule = () => (
       </li>
       <li className="list-item">
         Choose a spot. You can schedule times with  a green text.
-        Times with a yellow text were already scheduled by you and red text shows other user&apos;s times.
+        Times with a yellow text were already scheduled by you.
+        Red text shows other user&apos;s times.
         Click on Barf and Belch to navigate to previous week&apos;s or next week&apos;s schedulle.
         <img src="/contents/schedule-print.png" alt="Login print" className="list-image-100 my-4" />
       </li>

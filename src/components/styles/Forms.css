@@ -14,4 +14,17 @@ label {
 
 .btn-primary {
   background-color: rgba(5,44,111,.95);
+  font-size: 2rem;
+  height: 4rem;
+}
+
+@media (max-width: 750px) {
+  label {
+    font-size: 2rem;
+  }
+
+  .login,
+  .signup {
+    width: 60%;
+  }
 }

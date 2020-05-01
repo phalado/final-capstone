@@ -49,7 +49,7 @@ const UserSchedule = props => {
     <div>
       <h1 className="table-title">{`${user.name.split(' ')[0]}'s schedule`}</h1>
       <div className="table-container">
-        <Link to="/userSchedule">
+        <Link to="/userSchedule" className="next-prev width-bigger-900">
           <button
             type="button"
             className="home-buttons home-signup-button"
@@ -69,16 +69,28 @@ const UserSchedule = props => {
             {tableRows()}
           </tbody>
         </table>
-        <Link to="/userSchedule">
-          <button
-            type="button"
-            className="home-buttons home-signup-button"
-            onClick={() => chngWeek(1)}
-          >
-            <img src="/contents/next.png" alt="Signup" className="table-liks-images" />
-            <p>Next Week</p>
-          </button>
-        </Link>
+        <div>
+          <Link to="/userSchedule" className="next-prev width-smaller-900">
+            <button
+              type="button"
+              className="home-buttons home-signup-button"
+              onClick={() => chngWeek(-1)}
+            >
+              <img src="/contents/prev.png" alt="Signup" className="table-liks-images" />
+              <p>Previous Week</p>
+            </button>
+          </Link>
+          <Link to="/userSchedule" className="next-prev np-right">
+            <button
+              type="button"
+              className="home-buttons home-signup-button"
+              onClick={() => chngWeek(1)}
+            >
+              <img src="/contents/next.png" alt="Signup" className="table-liks-images" />
+              <p>Next Week</p>
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

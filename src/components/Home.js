@@ -18,7 +18,7 @@ const Home = props => {
   return (
     <div className="home">
       <h1 className="home-tittle">Welcome to Berk</h1>
-      <img src="./contents/berk.jpg" alt="Berk" />
+      <img src="./contents/berk.jpg" alt="Berk" className="berk-image" />
       <h2 className="home-tittle">&quot;Life here is amazing. Dragons used to be a bit of a problem, but now they’ve all moved in.&quot;</h2>
       <h2 className="home-tittle">And now we have the only in the world Dragon Flying Academy</h2>
       <div className="home-inst-button-container">

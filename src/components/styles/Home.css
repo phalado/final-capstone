@@ -1,5 +1,10 @@
 .home-tittle {
   margin: 2rem;
+  font-weight: bold;
+}
+
+.berk-image {
+  width: 80%;
 }
 
 .home-inst-button-container {

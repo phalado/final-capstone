@@ -69,10 +69,10 @@ const InstructorsSchedule = props => {
     <div>
       <h1 className="table-title">{`${instructor.name.split(' ')[0]}'s schedule`}</h1>
       <div className="table-container">
-        <Link to={`/instSchedule/${instructor.id}`}>
+        <Link to={`/instSchedule/${instructor.id}`} className="next-prev width-bigger-900">
           <button
             type="button"
-            className="home-buttons home-signup-button"
+            className="home-buttons home-signup-button table-links-buttons"
             onClick={() => chngWeek(-1)}
           >
             <img src="/contents/prev.png" alt="Signup" className="table-liks-images" />
@@ -89,16 +89,28 @@ const InstructorsSchedule = props => {
             {tableRows()}
           </tbody>
         </table>
-        <Link to={`/instSchedule/${instructor.id}`}>
-          <button
-            type="button"
-            className="home-buttons home-signup-button"
-            onClick={() => chngWeek(1)}
-          >
-            <img src="/contents/next.png" alt="Signup" className="table-liks-images" />
-            <p>Next Week</p>
-          </button>
-        </Link>
+        <div>
+          <Link to={`/instSchedule/${instructor.id}`} className="next-prev width-smaller-900">
+            <button
+              type="button"
+              className="home-buttons home-signup-button table-links-buttons"
+              onClick={() => chngWeek(-1)}
+            >
+              <img src="/contents/prev.png" alt="Signup" className="table-liks-images" />
+              <p>Previous Week</p>
+            </button>
+          </Link>
+          <Link to={`/instSchedule/${instructor.id}`} className="next-prev np-right">
+            <button
+              type="button"
+              className="home-buttons home-signup-button table-links-buttons"
+              onClick={() => chngWeek(1)}
+            >
+              <img src="/contents/next.png" alt="Signup" className="table-liks-images" />
+              <p>Next Week</p>
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
