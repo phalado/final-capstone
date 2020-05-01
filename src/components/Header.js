@@ -49,14 +49,12 @@ const Header = props => {
 
   return (
     <header className="header">
-      <div>
+      <div className="header-logo-name">
         <Link to="/">
           <button type="button" className="header-button">
             <img src="/contents/httyd-icon2.png" alt="Home" className="header-button-img" />
           </button>
         </Link>
-      </div>
-      <div>
         <h1>{'Berk\'s Dragon Flying Academy'}</h1>
       </div>
       <div>

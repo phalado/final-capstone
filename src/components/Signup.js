@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { createUser } from '../asyncCalls/createUser';
 import './styles/Forms.css';
 
-const Signup = () => {
+const Signup = props => {
+  const { user } = props;
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
@@ -43,6 +45,8 @@ const Signup = () => {
     }
   };
 
+  if (user.logged) history.push('/');
+
   return (
     <div className="signup">
       <h1 id="signup-message">Fill the for to signup</h1>
@@ -67,6 +71,12 @@ const Signup = () => {
       </form>
     </div>
   );
+};
+
+Signup.propTypes = {
+  user: PropTypes.shape({
+    logged: PropTypes.bool,
+  }).isRequired,
 };
 
 export default Signup;

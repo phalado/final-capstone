@@ -39,7 +39,7 @@ const CreateCells = props => {
     if (schUser[0].id === user.id) {
       return (
         <th>
-          <div className="cells">
+          <div className="cells text-warning">
             {schUser[0].name}
             <button
               type="button"
@@ -54,7 +54,7 @@ const CreateCells = props => {
 
     return (
       <th>
-        <div className="cells">
+        <div className="cells text-danger">
           {schUser[0].name}
         </div>
       </th>
@@ -64,7 +64,7 @@ const CreateCells = props => {
   if (user.logged) {
     return (
       <th>
-        <div className="cells">
+        <div className="cells text-success">
           Open spot
           <button
             type="button"
@@ -79,7 +79,7 @@ const CreateCells = props => {
 
   return (
     <th>
-      <div className="cells">
+      <div className="cells text-success">
         Open spot
         <Link to="/login">
           <button

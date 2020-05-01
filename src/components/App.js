@@ -13,10 +13,12 @@ import InstructorFile from './InstructorFile';
 import InstructorsSchedule from '../containers/InstructorsSchedule';
 import UserSchedule from '../containers/UserSchedule';
 import UserAccount from './UserAccount';
+import HowToSchedule from './HowToScheule';
 import Login from '../containers/Login';
 import Signup from './Signup';
-import './styles/App.css';
+import About from './About';
 import NoMatchPage from './NoMatchPage';
+import './styles/App.css';
 
 const App = props => {
   const {
@@ -38,7 +40,7 @@ const App = props => {
                 <Login />
               </Route>
               <Route path="/signup">
-                <Signup />
+                <Signup user={user} />
               </Route>
               <Route path="/instructors">
                 <InstructorsList instructors={instructors} />
@@ -54,6 +56,12 @@ const App = props => {
               </Route>
               <Route path="/account">
                 <UserAccount user={user} editUser={editUser} />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/how-to-schedule">
+                <HowToSchedule />
               </Route>
               <Route component={NoMatchPage} />
             </Switch>

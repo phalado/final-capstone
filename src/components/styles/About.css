@@ -1,0 +1,66 @@
+.about-text {
+  font-size: 1.5rem;
+  margin: 2rem 4rem;
+}
+
+.about-icon-container {
+  margin: 5rem;
+}
+
+.about-icon {
+  width: 5rem;
+  height: 5rem;
+  margin: 5rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 2.5rem;
+}
+
+.about-icon:hover {
+  padding: 2.75rem;
+}
+
+.github-icon {
+  background-image: url('/contents/github.png');
+}
+
+.github-icon:hover {
+  background-image: url('/contents/githubHover.png');
+}
+
+.twitter-icon {
+  background-image: url('/contents/twitter.png');
+}
+
+.twitter-icon:hover {
+  background-image: url('/contents/twitterHover.png');
+}
+
+.linkedin-icon {
+  background-image: url('/contents/linkedin.png');
+}
+
+.linkedin-icon:hover {
+  background-image: url('/contents/linkedinHover.png');
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.ordered-list {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.list-item {
+  font-size: 2rem;
+}
+
+.list-image-50 {
+  width: 50%;
+}
+
+.list-image-100 {
+  width: 100%;
+}

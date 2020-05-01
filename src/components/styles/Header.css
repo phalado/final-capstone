@@ -13,6 +13,11 @@ button:hover {
   z-index: 10;
 }
 
+.header-logo-name {
+  display: flex;
+  align-items: center;
+}
+
 .header-button {
   background: none;
   border: none;
