@@ -17,22 +17,24 @@ const InstructorFile = props => {
         <div className="inst-image-container">
           <img src={instImage} alt={name} className="inst-file-image" />
         </div>
-        <div className="inst-data">
-          <h1>{name}</h1>
-          <h2>
-            {`Dragon: ${dragonName}`}
-          </h2>
-          <h2>
-            {`Dragon type: ${dragonType}`}
-          </h2>
-          <Link to={`/instSchedule/${id}`}>
-            <button type="button" onClick={() => changeWeek(0)}>
-              Instructor&apos;s schedule
-            </button>
-          </Link>
-        </div>
-        <div className="dragon-image-container">
-          <img src={dragonImage} alt={dragonName} className="dragon-image" />
+        <div className="inst-data-container">
+          <div className="inst-data">
+            <h1>{name}</h1>
+            <h2>
+              {`Dragon: ${dragonName}`}
+            </h2>
+            <h2>
+              {`Dragon type: ${dragonType}`}
+            </h2>
+            <Link to={`/instSchedule/${id}`}>
+              <button type="button" onClick={() => changeWeek(0)} className="inst-file-button">
+                Instructor&apos;s schedule
+              </button>
+            </Link>
+          </div>
+          <div className="dragon-image-container">
+            <img src={dragonImage} alt={dragonName} className="dragon-image" />
+          </div>
         </div>
       </div>
     </div>

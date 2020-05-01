@@ -1,17 +1,42 @@
 .inst-file-container {
   display: flex;
+  height: calc(100vh - 4rem);
 }
 
-.inst-image-container,
-.inst-data,
-.dragon-image-container {
-  width: 30%;
+.inst-data-container {
+  margin: 0 auto;
+  width: -webkit-fill-available;
+}
+
+.inst-data {
+  margin-top: 2rem;
+}
+
+.inst-image-container {
+  display: contents;
 }
 
 .inst-file-image {
-  width: 100%;
+  height: 100%;
+}
+
+.inst-file-button {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.inst-file-button:hover {
+  transform: scale(1.1);
+}
+
+.dragon-image-container {
+  height: 60%;
 }
 
 .dragon-image {
-  width: 100%;
+  max-height: 100%;
 }
