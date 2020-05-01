@@ -56,6 +56,15 @@ const InstructorsSchedule = props => {
     return tr;
   };
 
+  if (instructor.id === '') {
+    return (
+      <div>
+        <h1 className="my-5">Fetching data. Please wait.</h1>
+        <img src="/contents/tooth-fetching.gif" alt="Fetching" className="fetch-image" />
+      </div>
+    );
+  }
+
   return (
     <div>
       <h1 className="table-title">{`${instructor.name.split(' ')[0]}'s schedule`}</h1>

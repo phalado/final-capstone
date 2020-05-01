@@ -14,7 +14,7 @@ if (localUser === null || !localUser.remember) {
   initialState = {
     user: {
       logged: false,
-      id: '',
+      id: 0,
       name: '',
       email: '',
     },

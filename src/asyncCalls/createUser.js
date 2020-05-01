@@ -12,6 +12,19 @@ const createUser = async props => {
   return response.data;
 };
 
+const updateUser = async props => {
+  const {
+    id, userName, userEmail, pass, conf,
+  } = props;
+
+  const url = `https://dragon-test-drive-api.herokuapp.com/users/${id}`;
+  const params = pass ? `name=${userName}&email=${userEmail}&password=${pass}&password_confirmation=${conf}`
+    : `name=${userName}&email=${userEmail}`;
+
+  const response = await axios.patch(`${url}?${params}`);
+  return response.data;
+};
+
 const userLogin = async props => {
   const { email, pass } = props;
   const url = 'https://dragon-test-drive-api.herokuapp.com/login';
@@ -38,5 +51,5 @@ const getSignedUsers = async () => {
 };
 
 export {
-  createUser, userLogin, getUser, getSignedUsers,
+  createUser, updateUser, userLogin, getUser, getSignedUsers,
 };

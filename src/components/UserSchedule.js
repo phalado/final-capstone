@@ -34,7 +34,6 @@ const UserSchedule = props => {
     for (let i = 8; i < 18; i += 1) {
       const j = i < 10 ? `0${i}` : i;
       tr.push(<CreateUserRows
-        user={user}
         instructors={instructors}
         date={moment().format(`${rowFormat}${j}:00`)}
         week={week}

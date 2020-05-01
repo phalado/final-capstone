@@ -11,6 +11,10 @@ button {
   margin: 2rem auto; 
 }
 
+.fetch-image {
+  width: 60rem;
+}
+
 .table-title {
   margin-top: 2rem;
 }

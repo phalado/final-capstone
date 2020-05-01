@@ -5,7 +5,9 @@ import { userLogin } from '../asyncCalls/createUser';
 import './styles/Forms.css';
 
 const Login = props => {
-  const { user, logIn } = props;
+  const {
+    user, signedUsers, logIn, addUsr,
+  } = props;
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
 
@@ -30,7 +32,9 @@ const Login = props => {
         id: response.id, name: response.name, email: response.email, remember: true,
       });
       localStorage.setItem('localUser', token);
-      return <Redirect to="/home" />;
+      const tempUser = signedUsers.filter(usr => usr.id === response.id);
+      if (tempUser.length === 0) addUsr({ id: response.id, name: response.name });
+      return <Redirect to="/" />;
     }
     return null;
   };
@@ -55,10 +59,12 @@ const Login = props => {
 };
 
 Login.propTypes = {
-  logIn: PropTypes.func.isRequired,
   user: PropTypes.shape({
     logged: PropTypes.bool,
   }).isRequired,
+  signedUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  logIn: PropTypes.func.isRequired,
+  addUsr: PropTypes.func.isRequired,
 };
 
 export default Login;

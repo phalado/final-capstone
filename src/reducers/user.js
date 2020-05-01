@@ -17,9 +17,9 @@ const userReducer = (state = null, action) => {
     case 'UPDATE_USER':
       return ({
         logged: true,
-        id: action.id,
-        name: action.name,
-        email: action.email,
+        id: action.user.id,
+        name: action.user.userName,
+        email: action.user.userEmail,
       });
     default:
       return state;

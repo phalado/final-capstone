@@ -18,7 +18,9 @@ import Signup from './Signup';
 import './styles/App.css';
 
 const App = props => {
-  const { user, instructors, chngWeek, editUser } = props;
+  const {
+    user, instructors, chngWeek, editUser,
+  } = props;
 
   return (
     <Router>

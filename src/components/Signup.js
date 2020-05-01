@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { createUser } from '../asyncCalls/createUser';
 import './styles/Forms.css';
 
@@ -8,6 +8,7 @@ const Signup = () => {
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
   const [conf, setConf] = useState();
+  const history = useHistory();
 
   const handleChange = event => {
     switch (event.target.id) {
@@ -35,13 +36,16 @@ const Signup = () => {
       name, email, pass, conf,
     });
     if (response.status) {
-      return <Redirect to="/login" />;
+      document.getElementById('signup-message').innerHTML = 'Success: User created! Go to login.';
+      history.push('/login');
+    } else {
+      document.getElementById('signup-message').innerHTML = 'Error: something wrong is not right.';
     }
-    return null;
   };
 
   return (
     <div className="signup">
+      <h1 id="signup-message">Fill the for to signup</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
           Name:
