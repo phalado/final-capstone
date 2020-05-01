@@ -16,6 +16,7 @@ import UserAccount from './UserAccount';
 import Login from '../containers/Login';
 import Signup from './Signup';
 import './styles/App.css';
+import NoMatchPage from './NoMatchPage';
 
 const App = props => {
   const {
@@ -54,6 +55,7 @@ const App = props => {
               <Route path="/account">
                 <UserAccount user={user} editUser={editUser} />
               </Route>
+              <Route component={NoMatchPage} />
             </Switch>
           </div>
         </div>

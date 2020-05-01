@@ -39,3 +39,9 @@
 .home-images {
   width: 100%;
 }
+
+.error-page {
+  margin: 2rem;
+  display: flex;
+  flex-flow: column;
+}
