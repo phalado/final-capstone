@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { getInstructors } from '../asyncCalls/createInstructor';
-import { getClasses } from '../asyncCalls/createClass';
-import { getSignedUsers } from '../asyncCalls/createUser';
+import { getInstructors } from '../services/instructor';
+import { getClasses } from '../services/classes';
+import { getSignedUsers } from '../services/user';
 import './styles/Navbar.css';
 
 const Navbar = props => {

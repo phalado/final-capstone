@@ -17,11 +17,6 @@ const updateUser = user => ({
   user,
 });
 
-// const createInstructor = instructor => ({
-//   type: 'CREATE_INSTRUCTOR',
-//   instructor,
-// });
-
 const addInstructor = instructor => ({
   type: 'ADD_INSTRUCTOR',
   instructor,

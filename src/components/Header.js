@@ -8,10 +8,7 @@ const Header = props => {
 
   const handleLogout = () => {
     logOut();
-    const token = JSON.stringify({
-      id: '', name: '', email: '', remember: false,
-    });
-    localStorage.setItem('localUser', token);
+    localStorage.removeItem('localUser');
   };
 
   if (user.logged) {

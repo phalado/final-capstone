@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import Header from '../containers/Header';
 import Navbar from '../containers/Navbar';
 import Home from './Home';
@@ -19,6 +20,8 @@ import Signup from './Signup';
 import About from './About';
 import NoMatchPage from './NoMatchPage';
 import './styles/App.css';
+
+toast.configure();
 
 const App = props => {
   const {

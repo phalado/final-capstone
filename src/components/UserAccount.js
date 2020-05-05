@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
-import { updateUser } from '../asyncCalls/createUser';
+import { updateUser } from '../services/user';
 
 const UserAccount = props => {
   const { user, editUser } = props;

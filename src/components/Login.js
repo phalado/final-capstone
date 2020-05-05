@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
-import { userLogin } from '../asyncCalls/createUser';
+import { ToastContainer, toast } from 'react-toastify';
+import { userLogin } from '../services/user';
+import 'react-toastify/dist/ReactToastify.css';
 import './styles/Forms.css';
 
 const Login = props => {
@@ -23,20 +25,40 @@ const Login = props => {
     event.preventDefault();
     const response = await userLogin({ email, pass });
     if (response === false) {
-      document.getElementById('login-message').innerHTML = 'Error: Not a user';
-    } else if (response === true) {
-      document.getElementById('login-message').innerHTML = 'Error: Password incorrect';
-    } else {
-      logIn({ id: response.id, name: response.name, email: response.email });
-      const token = JSON.stringify({
-        id: response.id, name: response.name, email: response.email, remember: true,
-      });
-      localStorage.setItem('localUser', token);
-      const tempUser = signedUsers.filter(usr => usr.id === response.id);
-      if (tempUser.length === 0) addUsr({ id: response.id, name: response.name });
-      return <Redirect to="/" />;
+      return (
+        <div>
+          {toast.error('Error: Not a user')}
+          <ToastContainer />
+        </div>
+      );
     }
-    return null;
+
+    if (response === true) {
+      return (
+        <div>
+          {toast.warn('Password incorrect')}
+          <ToastContainer />
+        </div>
+      );
+    }
+
+    logIn({ id: response.id, name: response.name, email: response.email });
+
+    const token = JSON.stringify({
+      id: response.id, name: response.name, email: response.email, remember: true,
+    });
+    localStorage.setItem('localUser', token);
+
+    const tempUser = signedUsers.filter(usr => usr.id === response.id);
+    if (tempUser.length === 0) addUsr({ id: response.id, name: response.name });
+
+    return (
+      <div>
+        {toast.success('Login successfull')}
+        <ToastContainer />
+        <Redirect to="/" />
+      </div>
+    );
   };
 
   return (

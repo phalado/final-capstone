@@ -1,51 +1,59 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import { createUser } from '../asyncCalls/createUser';
+import { ToastContainer, toast } from 'react-toastify';
+import { createUser } from '../services/user';
 import './styles/Forms.css';
 
 const Signup = props => {
   const { user } = props;
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [pass, setPass] = useState();
-  const [conf, setConf] = useState();
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    email: '',
+    pass: '',
+    conf: '',
+  });
   const history = useHistory();
 
   const handleChange = event => {
-    switch (event.target.id) {
-      case 'input-name':
-        setName(event.target.value);
-        break;
-      case 'input-email':
-        setEmail(event.target.value);
-        break;
-      case 'input-pass':
-        setPass(event.target.value);
-        break;
-      case 'input-conf':
-        setConf(event.target.value);
-        break;
-      default:
-        return null;
-    }
-    return null;
+    const { id, value } = event.target;
+    const key = id.split('-')[1];
+    setUserInfo({
+      ...userInfo,
+      [key]: value,
+    });
   };
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const response = await createUser({
-      name, email, pass, conf,
-    });
+    const response = await createUser(userInfo);
     if (response.status) {
-      document.getElementById('signup-message').innerHTML = 'Success: User created! Go to login.';
-      history.push('/login');
-    } else {
-      document.getElementById('signup-message').innerHTML = 'Error: something wrong is not right.';
+      return (
+        <div>
+          {toast.success('Success: User created! Please, login.')}
+          <ToastContainer />
+          {history.push('/login')}
+        </div>
+      );
     }
+
+    return (
+      <div>
+        {toast.error('Error: something wrong is not right.')}
+        <ToastContainer />
+      </div>
+    );
   };
 
-  if (user.logged) history.push('/');
+  if (user.logged) {
+    return (
+      <div>
+        {toast.warn('User already logged')}
+        <ToastContainer />
+        {history.push('/')}
+      </div>
+    );
+  }
 
   return (
     <div className="signup">

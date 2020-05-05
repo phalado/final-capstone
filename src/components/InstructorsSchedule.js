@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import getSingleInst from '../helpers/InstructorsHelper';
 import { CreateRows, getDay } from '../helpers/TableHelper';
-import { createClass, deleteClass } from '../asyncCalls/createClass';
+import { createClass, deleteClass } from '../services/classes';
 import './styles/Tables.css';
 
 const InstructorsSchedule = props => {
