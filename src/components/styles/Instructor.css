@@ -1,0 +1,20 @@
+.instructors-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.inst-container {
+  height: 30rem;
+  margin: 1rem 3rem 5rem;
+}
+
+.inst-button {
+  height: 100%;
+  background: none;
+  border: none;
+}
+
+.inst-image {
+  height: 100%;
+}

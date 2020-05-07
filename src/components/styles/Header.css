@@ -1,0 +1,51 @@
+button:hover {
+  cursor: pointer;
+}
+
+.header {
+  background-color: rgba(5,44,111,.95);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.header-logo-name {
+  display: flex;
+  align-items: center;
+}
+
+.header-button {
+  background: none;
+  border: none;
+  margin-left: 0.5rem;
+}
+
+.header-button-img {
+  height: 4rem;
+  width: 4rem;
+}
+
+.account-buttons-container {
+  display: flex;
+}
+
+.account-button {
+  border-radius: 5px;
+  margin: 0.5rem;
+  height: 3rem;
+  min-width: 5rem;
+  width: fit-content;
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+}
+
+.account-button:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,52 @@
+.home-tittle {
+  margin: 2rem;
+  font-weight: bold;
+}
+
+.berk-image {
+  width: 80%;
+}
+
+.home-inst-button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.home-buttons {
+  position: relative;
+  border: none;
+  background: none;
+}
+
+.button-name {
+  position: absolute;
+  color: black;
+  bottom: 0;
+  font-size: 3rem;
+  background-color: rgba(256,256,256,0.5);
+  left: 1.5rem;
+  padding: 0 1rem;
+  border-radius: 10px;
+}
+
+.home-inst-button {
+  width: 60%;
+}
+
+.home-login-buttons {
+  width: 30%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.home-images {
+  width: 100%;
+}
+
+.error-page {
+  margin: 2rem;
+  display: flex;
+  flex-flow: column;
+}
