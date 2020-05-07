@@ -10,7 +10,7 @@ import Header from '../containers/Header';
 import Navbar from '../containers/Navbar';
 import Home from './Home';
 import InstructorsList from './InstructorsList';
-import InstructorFile from './InstructorFile';
+import InstructorFile from '../containers/InstructorFile';
 import InstructorsSchedule from '../containers/InstructorsSchedule';
 import UserSchedule from '../containers/UserSchedule';
 import UserAccount from './UserAccount';
@@ -25,7 +25,7 @@ toast.configure();
 
 const App = props => {
   const {
-    user, instructors, chngWeek, editUser,
+    user, instructors, editUser,
   } = props;
 
   return (
@@ -49,7 +49,7 @@ const App = props => {
                 <InstructorsList instructors={instructors} />
               </Route>
               <Route path="/instFile/:id">
-                <InstructorFile instructors={instructors} changeWeek={chngWeek} />
+                <InstructorFile />
               </Route>
               <Route path="/instSchedule/:id">
                 <InstructorsSchedule />
@@ -81,7 +81,6 @@ App.propTypes = {
     id: PropTypes.number,
     logged: PropTypes.bool,
   }).isRequired,
-  chngWeek: PropTypes.func.isRequired,
   editUser: PropTypes.func.isRequired,
 };
 
