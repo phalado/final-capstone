@@ -12,8 +12,6 @@ const InstructorFile = props => {
     name, instImage, dragonName, dragonType, dragonImage,
   } = instructor;
 
-  console.log(name, id);
-
   return (
     <div>
       <div className="inst-file-container">
