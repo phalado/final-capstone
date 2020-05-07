@@ -1,6 +1,6 @@
 # Microverse's Final Capstone Project: Book of Appointment
 
-<h1 align="center"><img src="https://raw.githubusercontent.com/phalado/final-capstone/features/public/contents/welcome.png"></h1>
+<h1 align="center"><img src="https://raw.githubusercontent.com/phalado/final-capstone/develop/public/contents/welcome.png"></h1>
 
 This is part of Microverse's final capstone project.
 In this repository, I build the front end for a Dragon Flying Academy web app with the characters of [How to Train Your Dragon][httyd] series.
@@ -108,8 +108,8 @@ I have no business rights about the characters used in this API. This is only fo
 [instructors]: https://features--berksacademy.netlify.app/instructors
 
 <!-- Images -->
-[signup-img]: https://raw.githubusercontent.com/phalado/final-capstone/features/public/contents/signup-print.png
-[login-img]: https://raw.githubusercontent.com/phalado/final-capstone/features/public/contents/login-print.png
-[instructors-img]: https://raw.githubusercontent.com/phalado/final-capstone/features/public/contents/instructors-print.png
-[instructor-img]: https://raw.githubusercontent.com/phalado/final-capstone/features/public/contents/instructor-print.png
-[schedule-img]: https://raw.githubusercontent.com/phalado/final-capstone/features/public/contents/schedule-print.png
+[signup-img]: https://raw.githubusercontent.com/phalado/final-capstone/develop/public/contents/signup-print.png
+[login-img]: https://raw.githubusercontent.com/phalado/final-capstone/develop/public/contents/login-print.png
+[instructors-img]: https://raw.githubusercontent.com/phalado/final-capstone/develop/public/contents/instructors-print.png
+[instructor-img]: https://raw.githubusercontent.com/phalado/final-capstone/develop/public/contents/instructor-print.png
+[schedule-img]: https://raw.githubusercontent.com/phalado/final-capstone/develop/public/contents/schedule-print.png
