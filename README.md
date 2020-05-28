@@ -14,6 +14,7 @@ In this repository, I build the front end for a Dragon Flying Academy web app wi
   - [The Dragon Flying Academy](#the-dragon-flying-academy)
     - [How to open](#how-to-open)
     - [Technologies used](#technologies-used)
+  - [Future work](future-work)
   - [Contact](#contact)
   - [Acknowledgments](#acknowledgments)
 
@@ -78,6 +79,14 @@ To create this project I used:
 * Netlify
 
 
+## Future work
+
+- Mobile version using React Native
+- More details about the dragons
+- Possibility to use a dragon as personal image
+
+
+
 ## Contact
 
 Author: Raphael Cordeiro
@@ -101,7 +110,7 @@ I have no business rights about the characters used in this API. This is only fo
 [rapha-github]: https://github.com/phalado
 [rapha-twitter]: https://twitter.com/phalado
 [rapha-linkedin]: https://www.linkedin.com/in/raphael-cordeiro/
-[rapha-personal]: https://phalado.github.io/
+[rapha-personal]: https://www.phalado.tech/
 
 [sigup]: https://features--berksacademy.netlify.app/signup
 [login]: https://features--berksacademy.netlify.app/login
